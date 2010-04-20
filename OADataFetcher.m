@@ -29,6 +29,9 @@
 
 @implementation OADataFetcher
 
+
+@synthesize delegate;
+
 - (id)init {
 	[super init];
 	responseData = [[NSMutableData alloc] init];
