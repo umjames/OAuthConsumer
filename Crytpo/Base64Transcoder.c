@@ -161,6 +161,9 @@ else if (theRemainingBytes == 2)
 		}
 	}
 return(true);
+
+// MODS THS - silence analyzer warnings about stored values never being read
+#pragma unused(theOutIndex)
 }
 
 bool Base64DecodeData(const void *inInputData, size_t inInputDataSize, void *ioOutputData, size_t *ioOutputDataSize)
