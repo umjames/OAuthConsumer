@@ -55,7 +55,7 @@
 															  response:response
 																  data:responseData
 															didSucceed:NO];
-    [ticket autorelease];
+
 	[delegate performSelector:didFailSelector withObject:ticket withObject:error];
 }
 
@@ -68,7 +68,7 @@
 															  response:response
 																  data:responseData
 															didSucceed:[(NSHTTPURLResponse *)response statusCode] < 400];
-    [ticket autorelease];
+
 	[delegate performSelector:didFinishSelector withObject:ticket withObject:responseData];
 }
 
