@@ -185,13 +185,12 @@
 }
 
 - (NSDictionary *)attributes {
-	return [attributes autorelease];
+	return [[attributes copy] autorelease];
 }
 
 - (void)setAttributes:(NSDictionary *)theAttributes {
 	[attributes release];
 	attributes = [[NSMutableDictionary alloc] initWithDictionary:theAttributes];
-	
 }
 
 - (BOOL)hasAttributes {
