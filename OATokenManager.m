@@ -12,6 +12,12 @@
 #import "OACall.h"
 #import "OATokenManager.h"
 
+#if TARGET_OS_IPHONE
+#import <UIKit/UIKit.h>
+#else
+#import <Cocoa/Cocoa.h>
+#endif
+
 @interface OATokenManager (Private)
 
 - (void)callProblem:(OACall *)call problem:(OAProblem *)problem;
