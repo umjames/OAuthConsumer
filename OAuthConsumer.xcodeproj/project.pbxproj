@@ -45,7 +45,6 @@
 		FD44F3E611F3D357000B1930 /* OAuthConsumer.h in Headers */ = {isa = PBXBuildFile; fileRef = FD44F23111F3D14E000B1930 /* OAuthConsumer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD44F3E711F3D358000B1930 /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = FD44F21811F3D14E000B1930 /* sha1.c */; };
 		FD44F3E811F3D358000B1930 /* sha1.h in Headers */ = {isa = PBXBuildFile; fileRef = FD44F21911F3D14E000B1930 /* sha1.h */; };
-		FD44F40011F3D633000B1930 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD44F3FF11F3D633000B1930 /* Foundation.framework */; };
 		FD44F40711F3D6C5000B1930 /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = FD44F21411F3D14E000B1930 /* Base64Transcoder.c */; };
 		FD44F40811F3D6C6000B1930 /* Base64Transcoder.h in Headers */ = {isa = PBXBuildFile; fileRef = FD44F21511F3D14E000B1930 /* Base64Transcoder.h */; };
 		FD44F40911F3D6CE000B1930 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD44F3FF11F3D633000B1930 /* Foundation.framework */; };
@@ -139,7 +138,6 @@
 			files = (
 				FD44F23F11F3D2B2000B1930 /* UIKit.framework in Frameworks */,
 				FD44F36F11F3D30E000B1930 /* Foundation.framework in Frameworks */,
-				FD44F40011F3D633000B1930 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,7 +453,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(DEVELOPER_DIR)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.1.sdk/System/Library/Frameworks\"",
-					"\"$(DEVELOPER_DIR)/SDKs/MacOSX10.6.sdk/System/Library/Frameworks\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
