@@ -83,6 +83,10 @@
 		FD69776711FBF3C1000311C2 /* OAuthConsumer.h in Headers */ = {isa = PBXBuildFile; fileRef = FD44F23111F3D14E000B1930 /* OAuthConsumer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD69776811FBF3C2000311C2 /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = FD44F21811F3D14E000B1930 /* sha1.c */; };
 		FD69776911FBF3C2000311C2 /* sha1.h in Headers */ = {isa = PBXBuildFile; fileRef = FD44F21911F3D14E000B1930 /* sha1.h */; };
+		FD6977F811FBFCC9000311C2 /* OAMutableURLRequest+Debug.h in Headers */ = {isa = PBXBuildFile; fileRef = FD6977F611FBFCC9000311C2 /* OAMutableURLRequest+Debug.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FD6977F911FBFCC9000311C2 /* OAMutableURLRequest+Debug.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6977F711FBFCC9000311C2 /* OAMutableURLRequest+Debug.m */; };
+		FD6977FA11FBFCC9000311C2 /* OAMutableURLRequest+Debug.h in Headers */ = {isa = PBXBuildFile; fileRef = FD6977F611FBFCC9000311C2 /* OAMutableURLRequest+Debug.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FD6977FB11FBFCC9000311C2 /* OAMutableURLRequest+Debug.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6977F711FBFCC9000311C2 /* OAMutableURLRequest+Debug.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +133,8 @@
 		FD44F3FF11F3D633000B1930 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		FD44F43C11F3D90D000B1930 /* Cocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		FD6976BF11FBBB92000311C2 /* libMac Static Library.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libMac Static Library.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD6977F611FBFCC9000311C2 /* OAMutableURLRequest+Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OAMutableURLRequest+Debug.h"; sourceTree = "<group>"; };
+		FD6977F711FBFCC9000311C2 /* OAMutableURLRequest+Debug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OAMutableURLRequest+Debug.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +197,8 @@
 		FD44F20C11F3D14E000B1930 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				FD6977F611FBFCC9000311C2 /* OAMutableURLRequest+Debug.h */,
+				FD6977F711FBFCC9000311C2 /* OAMutableURLRequest+Debug.m */,
 				FD44F20D11F3D14E000B1930 /* NSMutableURLRequest+Parameters.h */,
 				FD44F20E11F3D14E000B1930 /* NSMutableURLRequest+Parameters.m */,
 				FD44F20F11F3D14E000B1930 /* NSString+URLEncoding.h */,
@@ -276,6 +284,7 @@
 				FD44F3E411F3D356000B1930 /* OATokenManager.h in Headers */,
 				FD44F3E611F3D357000B1930 /* OAuthConsumer.h in Headers */,
 				FD44F3E811F3D358000B1930 /* sha1.h in Headers */,
+				FD6977F811FBFCC9000311C2 /* OAMutableURLRequest+Debug.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +311,7 @@
 				FD69776511FBF3BF000311C2 /* OATokenManager.h in Headers */,
 				FD69776711FBF3C1000311C2 /* OAuthConsumer.h in Headers */,
 				FD69776911FBF3C2000311C2 /* sha1.h in Headers */,
+				FD6977FA11FBFCC9000311C2 /* OAMutableURLRequest+Debug.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +400,7 @@
 				FD44F3E311F3D354000B1930 /* OAToken.m in Sources */,
 				FD44F3E511F3D356000B1930 /* OATokenManager.m in Sources */,
 				FD44F3E711F3D358000B1930 /* sha1.c in Sources */,
+				FD6977F911FBFCC9000311C2 /* OAMutableURLRequest+Debug.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +425,7 @@
 				FD69776411FBF3BE000311C2 /* OAToken.m in Sources */,
 				FD69776611FBF3C0000311C2 /* OATokenManager.m in Sources */,
 				FD69776811FBF3C2000311C2 /* sha1.c in Sources */,
+				FD6977FB11FBFCC9000311C2 /* OAMutableURLRequest+Debug.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
