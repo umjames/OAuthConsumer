@@ -42,6 +42,7 @@
     id<OASignatureProviding> signatureProvider;
     NSString *nonce;
     NSString *timestamp;
+	NSMutableArray*	_authorizationHeaderParams;
 }
 @property(readonly) NSString *signature;
 @property(readonly) NSString *nonce;
@@ -61,5 +62,7 @@ signatureProvider:(id<OASignatureProviding, NSObject>)aProvider
         timestamp:(NSString *)aTimestamp;
 
 - (void)prepare;
+
+- (void)setAdditionalOAuthAuthorizationHeaderParameters: (NSArray*)oauthRequestParams;
 
 @end

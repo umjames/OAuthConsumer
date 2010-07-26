@@ -64,7 +64,6 @@
 	self.session = aSession;
 	self.duration = aDuration;
 	self.attributes = theAttributes;
-	_parameters = [[NSMutableArray alloc] initWithCapacity: 4];
 	created = [creation retain];
 	renewable = renew;
 	forRenewal = NO;
@@ -137,10 +136,7 @@
   	self.verifier = nil;
     self.duration = nil;
     self.attributes = nil;
-	
-	[_parameters release];
-	_parameters = nil;
-	
+		
 	[super dealloc];
 }
 
@@ -244,21 +240,8 @@
 			[params setObject:[self attributeString] forKey:@"oauth_token_attributes"];
 		}
 	}
-	
-	if (nil != _parameters)
-	{
-		for (OARequestParameter* tempParam in _parameters)
-		{
-			[params setObject: tempParam.value forKey: tempParam.name];
-		}
-	}
-	
+		
 	return params;
-}
-
-- (void)setAdditionalAuthorizationHeaderParameters: (NSArray*)params
-{
-	[_parameters setArray: params];
 }
 
 #pragma mark comparisions

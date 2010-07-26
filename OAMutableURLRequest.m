@@ -48,6 +48,7 @@ signatureProvider:(id<OASignatureProviding, NSObject>)aProvider {
        timeoutInterval:10.0];
     
     consumer = aConsumer;
+	_authorizationHeaderParams = [[NSMutableArray alloc] initWithCapacity: 4];
     
     // empty token for Unauthorized Request Token transaction
     if (aToken == nil) {
@@ -96,6 +97,26 @@ signatureProvider:(id<OASignatureProviding, NSObject>)aProvider
     return self;
 }
 
+- (void)dealloc
+{
+	[_authorizationHeaderParams release];
+	_authorizationHeaderParams = nil;
+	
+	[nonce release];
+	nonce = nil;
+	
+	[timestamp release];
+	timestamp = nil;
+	
+	[token release];
+	token = nil;
+	
+	[signatureProvider release];
+	signatureProvider = nil;
+	
+	[super dealloc];
+}
+
 - (void)prepare {
     // sign
 //	NSLog(@"Base string is: %@", [self _signatureBaseString]);
@@ -114,6 +135,11 @@ signatureProvider:(id<OASignatureProviding, NSObject>)aProvider
 		[chunks addObject:[NSString stringWithFormat:@"%@=\"%@\"", k, [[tokenParameters objectForKey:k] encodedURLParameterString]]];
 	}
 
+	for (OARequestParameter* tempParam in _authorizationHeaderParams)
+	{
+		[chunks addObject: [NSString stringWithFormat: @"%@=\"%@\"", tempParam.name, [tempParam.value encodedURLParameterString]]];
+	}
+	
 	[chunks addObject:[NSString stringWithFormat:@"oauth_signature_method=\"%@\"", [[signatureProvider name] encodedURLParameterString]]];
 	[chunks addObject:[NSString stringWithFormat:@"oauth_signature=\"%@\"", [signature encodedURLParameterString]]];
 	[chunks addObject:[NSString stringWithFormat:@"oauth_timestamp=\"%@\"", timestamp]];
@@ -124,6 +150,11 @@ signatureProvider:(id<OASignatureProviding, NSObject>)aProvider
 	[chunks release];
 
     [self setValue:oauthHeader forHTTPHeaderField:@"Authorization"];
+}
+
+- (void)setAdditionalOAuthAuthorizationHeaderParameters: (NSArray*)oauthRequestParams
+{
+	[_authorizationHeaderParams setArray: oauthRequestParams];
 }
 
 - (void)_generateTimestamp {
