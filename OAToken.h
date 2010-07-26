@@ -32,7 +32,8 @@
   	NSString *verifier;
 	NSString *session;
 	NSNumber *duration;
-	NSMutableDictionary *attributes;
+	NSMutableDictionary* attributes;
+	NSMutableArray*		_parameters;
 	NSDate *created;
 	BOOL renewable;
 	BOOL forRenewal;
@@ -66,6 +67,7 @@
 - (void)setDurationWithString:(NSString *)aDuration;
 - (BOOL)hasAttributes;
 - (NSDictionary *)parameters;
+- (void)setAdditionalAuthorizationHeaderParameters: (NSArray*)params;
 
 - (BOOL)isEqualToToken:(OAToken *)aToken;
 
