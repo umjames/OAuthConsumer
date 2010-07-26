@@ -186,9 +186,9 @@ signatureProvider:(id<OASignatureProviding, NSObject>)aProvider
 		[parameterPairs addObject:[[OARequestParameter requestParameter:k value:[tokenParameters objectForKey:k]] URLEncodedNameValuePair]];
 	}
 	
-	if (nil != _authorizationHeaderParams)
+	for (OARequestParameter* tempParam in _authorizationHeaderParams)
 	{
-		[parameterPairs addObjectsFromArray: _authorizationHeaderParams];
+		[parameterPairs addObject: [tempParam URLEncodedNameValuePair]];
 	}
     
 	if (![[self valueForHTTPHeaderField:@"Content-Type"] hasPrefix:@"multipart/form-data"]) {
