@@ -44,6 +44,7 @@
 @property(retain, readwrite) NSNumber *duration;
 @property(retain, readwrite) NSDictionary *attributes;
 @property(readwrite, getter=isForRenewal) BOOL forRenewal;
+@property(retain, readonly) NSDate* creationDate;
 
 - (id)initWithKey:(NSString *)aKey secret:(NSString *)aSecret;
 - (id)initWithKey:(NSString *)aKey secret:(NSString *)aSecret verifier:(NSString *)aVerifier session:(NSString *)aSession

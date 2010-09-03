@@ -24,9 +24,9 @@
 //  THE SOFTWARE.
 
 
-#import "NSString+URLEncoding.h"
 #import "OAToken.h"
 #import "OARequestParameter.h"
+#import "NSString+URLEncoding.h"
 
 @interface OAToken (Private)
 
@@ -41,6 +41,7 @@
 @implementation OAToken
 
 @synthesize key, secret, verifier, session, duration, forRenewal;
+@synthesize creationDate = created;
 @dynamic attributes;
 
 #pragma mark init
