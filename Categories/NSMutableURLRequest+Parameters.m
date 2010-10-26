@@ -24,6 +24,7 @@
 
 
 #import "NSMutableURLRequest+Parameters.h"
+#import "MGSDeliciousHTTPUtils.h"
 
 static NSString *Boundary = @"-----------------------------------0xCoCoaouTHeBouNDaRy"; 
 
@@ -53,8 +54,29 @@ static NSString *Boundary = @"-----------------------------------0xCoCoaouTHeBou
     
     for (NSString *encodedPair in encodedParameterPairs) {
         NSArray *encodedPairElements = [encodedPair componentsSeparatedByString:@"="];
-        OARequestParameter *parameter = [[OARequestParameter alloc] initWithName:[[encodedPairElements objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
-                                                                           value:[[encodedPairElements objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+		
+//		NSString*	encodedKey = (NSString*)CFURLCreateStringByAddingPercentEscapes(NULL,  (CFStringRef)[encodedPairElements objectAtIndex: 0], NULL, (CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
+//		NSString*	encodedValue = (NSString*)CFURLCreateStringByAddingPercentEscapes(NULL,  (CFStringRef)[encodedPairElements objectAtIndex: 1], NULL, (CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
+		
+//        OARequestParameter *parameter = [[OARequestParameter alloc] initWithName:[[encodedPairElements objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
+//                                                                           value:[[encodedPairElements objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+		
+		NSString* value = [encodedPairElements objectAtIndex: 1];
+		
+		if ([value rangeOfString: @"%"].location != NSNotFound)
+		{
+			value = [MGSDeliciousHTTPUtils URLdecode: value];
+		}
+		
+		OARequestParameter *parameter = [[OARequestParameter alloc] initWithName: [encodedPairElements objectAtIndex: 0]
+                                                                           value: value];
+
+//		[encodedKey release];
+//		encodedKey = nil;
+//		
+//		[encodedValue release];
+//		encodedValue = nil;
+		
         [requestParameters addObject:parameter];
         [parameter release], parameter = nil;
     }
