@@ -24,7 +24,6 @@
 
 
 #import "NSMutableURLRequest+Parameters.h"
-#import "MGSDeliciousHTTPUtils.h"
 
 static NSString *Boundary = @"-----------------------------------0xCoCoaouTHeBouNDaRy"; 
 
@@ -38,14 +37,14 @@ static NSString *Boundary = @"-----------------------------------0xCoCoaouTHeBou
     NSString *encodedParameters = nil;
     
 	if (![self isMultipart]) {
-		if ([[self HTTPMethod] isEqualToString:@"GET"] || [[self HTTPMethod] isEqualToString:@"DELETE"]) {
+		if ([[self HTTPMethod] isEqualToString: @"GET"] || [[self HTTPMethod] isEqualToString: @"DELETE"]) {
 			encodedParameters = [[self URL] query];
 		} else {
-			encodedParameters = [[[NSString alloc] initWithData:[self HTTPBody] encoding:NSASCIIStringEncoding] autorelease];
+			encodedParameters = [[[NSString alloc] initWithData: [self HTTPBody] encoding: NSUTF8StringEncoding] autorelease];
 		}
 	}
     
-    if (encodedParameters == nil || [encodedParameters isEqualToString:@""]) {
+    if (encodedParameters == nil || [encodedParameters isEqualToString: @""]) {
         return nil;
     }
 //    NSLog(@"raw parameters %@", encodedParameters);
@@ -54,28 +53,17 @@ static NSString *Boundary = @"-----------------------------------0xCoCoaouTHeBou
     
     for (NSString *encodedPair in encodedParameterPairs) {
         NSArray *encodedPairElements = [encodedPair componentsSeparatedByString:@"="];
-		
-//		NSString*	encodedKey = (NSString*)CFURLCreateStringByAddingPercentEscapes(NULL,  (CFStringRef)[encodedPairElements objectAtIndex: 0], NULL, (CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
-//		NSString*	encodedValue = (NSString*)CFURLCreateStringByAddingPercentEscapes(NULL,  (CFStringRef)[encodedPairElements objectAtIndex: 1], NULL, (CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
-		
-//        OARequestParameter *parameter = [[OARequestParameter alloc] initWithName:[[encodedPairElements objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
-//                                                                           value:[[encodedPairElements objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-		
-		NSString* value = [encodedPairElements objectAtIndex: 1];
-		
-		if ([value rangeOfString: @"%"].location != NSNotFound)
-		{
-			value = [MGSDeliciousHTTPUtils URLdecode: value];
-		}
+				
+//		NSString* value = [encodedPairElements objectAtIndex: 1];
+//		
+//		// if the value has been URL encoded, decode it as
+//		if ([value rangeOfString: @"%"].location != NSNotFound)
+//		{
+//			value = [MGSDeliciousHTTPUtils URLdecode: value];
+//		}
 		
 		OARequestParameter *parameter = [[OARequestParameter alloc] initWithName: [encodedPairElements objectAtIndex: 0]
-                                                                           value: value];
-
-//		[encodedKey release];
-//		encodedKey = nil;
-//		
-//		[encodedValue release];
-//		encodedValue = nil;
+                                                                           value: [encodedPairElements objectAtIndex: 1]];
 		
         [requestParameters addObject:parameter];
         [parameter release], parameter = nil;
