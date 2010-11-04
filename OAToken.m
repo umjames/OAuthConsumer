@@ -169,7 +169,7 @@
 
 - (BOOL)hasExpired
 {
-	return created && [created timeIntervalSinceNow] > [duration intValue];
+	return created && [[NSDate date] timeIntervalSinceDate: created] > [duration intValue];
 }
 
 - (BOOL)isRenewable
